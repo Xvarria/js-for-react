@@ -79,19 +79,21 @@ function Main(){
     console.log("\n======== - 6.2 References class functions ========");
     const catSpeak = Pet.speak;
     //catSpeak(); //Runtime error not a function
+    console.log(" //catSpeak(); //Runtime error not a function");
 
     const catShout = Pet.shout;
     //catShout(); //Runtime error not a function
+    console.log(" //catShout(); //Runtime error not a function");
 
     console.log("\n======== 7. bind / call / apply ========");
     function greet() {
-    console.log("Greeted:", this.name);
+        console.log("Greeted:", this.name);
     }
 
     const person = { name: "Alice" };
 
-    greet(); // No context
-    greet.call(person);  // Call
+    greet(); // No context -- Undefined /no context
+    greet.call(person);  // Call 
     greet.apply(person); // Apply
     const bound = greet.bind(person);
     bound();             // Bound
@@ -112,22 +114,3 @@ function Main(){
     }
 
 Main();
-
-/*
-    const dog2 = {
-        name: "Zeus",
-        speak: function () {
-            console.log("Regular:", this.name);
-        },
-
-        shout: () => {
-            console.log("Arrow:", this.name);
-        }
-    }
-
-    const talk = dog2.speak;
-    const yell = dog2.shout;
-
-    talk(); // Undefined as dog2.speak
-    yell(); // Also undefined    
-*/
